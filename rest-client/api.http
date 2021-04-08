@@ -1,0 +1,2 @@
+### how to get a user
+GET https://api.github.com/users/rocambille
