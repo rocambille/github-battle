@@ -3,6 +3,8 @@ import './App.css';
 
 import pages from './pages';
 
+import NavBar from './components/NavBar';
+
 function App() {
   const [currentPath, setCurrentPath] = useState(pages[0].path);
 
@@ -10,10 +12,11 @@ function App() {
 
   return (
     <>
-      <nav>
-        <button type="button" onClick={() => setCurrentPath('/home')}>Home</button>
-        <button type="button" onClick={() => setCurrentPath('/about')}>About</button>
-      </nav>
+      <NavBar
+        pages={pages}
+        currentPath={currentPath}
+        setCurrentPath={setCurrentPath}
+      />
       <currentPage.Component />
     </>
   );
