@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+.link {
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: initial;
+  text-decoration: underline;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: inherit;
+  font-size: inherit;
+  --hue: 220;
+  --saturation: 100%;
+  --lightness: 50%;
+  color: hsl(var(--hue), var(--saturation), var(--lightness));
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.link:hover,
+.link:focus,
+.link:active {
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.link:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar {
+  padding: 1rem;
+  background-color: rgb(36, 41, 46);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.App-link {
-  color: #61dafb;
+.navbar .link {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar .link:hover,
+.navbar .link:focus,
+.navbar .link:active {
+  color: inherit;
+}
+
+.navbar .link.current-page {
+  color: inherit;
+  outline: 1px solid #fff;
+  outline-offset: 4px;
 }
