@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import './App.css';
 
-import About from './pages/About';
-import Home from './pages/Home';
+import pages from './pages';
+
+import NavBar from './components/NavBar';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('/home');
+  const [currentPath, setCurrentPath] = useState(pages[0].path);
+
+  const currentPage = pages.find((page) => page.path === currentPath);
 
   return (
     <>
-      <nav>
-        <button type="button" onClick={() => setCurrentPage('/home')}>Home</button>
-        <button type="button" onClick={() => setCurrentPage('/about')}>About</button>
-      </nav>
-      {currentPage === '/about'
-        && <About />}
-      {currentPage === '/home'
-        && <Home />}
+      <NavBar
+        pages={pages}
+        currentPath={currentPath}
+        setCurrentPath={setCurrentPath}
+      />
+      <currentPage.Component />
     </>
   );
 }
