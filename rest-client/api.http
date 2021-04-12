@@ -1,2 +1,8 @@
 ### how to get a user
 GET https://api.github.com/users/rocambille
+
+### search users with type user
+GET https://api.github.com/search/users?q=type%3Auser
+
+### search users with type org
+GET https://api.github.com/search/users?q=type%3Aorg
