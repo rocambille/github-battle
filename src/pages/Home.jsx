@@ -1,10 +1,13 @@
 import React from 'react';
 
+import Card from '../components/Card';
+
 function Home() {
   return (
-    <p>
-      Hello from Home
-    </p>
+    <>
+      <Card />
+      <Card />
+    </>
   );
 }
 
