@@ -1,27 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Card from '../components/Card';
+import CatchPhrase from '../components/CatchPhrase';
 
 function Home() {
-  const [totalCount, setTotalCount] = useState();
-
-  useEffect(() => {
-    fetch('https://api.github.com/search/users?q=type%3Auser')
-      .then((response) => response.json())
-      .then((data) => {
-        setTotalCount(data.total_count);
-      });
-  }, []);
-
   return (
     <>
-      <p>
-        Start a battle between our
-        {' '}
-        {totalCount}
-        {' '}
-        champions
-      </p>
+      <CatchPhrase />
       <Card />
       <Card />
     </>
