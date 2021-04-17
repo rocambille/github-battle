@@ -13,25 +13,26 @@ function Card() {
     );
   };
 
-  if (user == null) {
-    return (
-      <>
-        <p>Who is your champion?</p>
-        <Search onTextChange={fetchUsername} buttonText="📞" />
-      </>
-    );
-  }
-
   return (
-    <>
-      <img src={user.avatar_url} alt={user.login} />
-      <button
-        type="button"
-        onClick={() => setUser(null)}
-      >
-        Change your champion
-      </button>
-    </>
+    <section>
+      {user == null ? (
+        <>
+          <h2>Who is your champion?</h2>
+          <Search handleQuery={fetchUsername} buttonText="📞" />
+        </>
+      ) : (
+        <>
+          <h2>{user.login}</h2>
+          <img src={user.avatar_url} alt={user.login} />
+          <button
+            type="button"
+            onClick={() => setUser(null)}
+          >
+            Change your champion
+          </button>
+        </>
+      )}
+    </section>
   );
 }
 

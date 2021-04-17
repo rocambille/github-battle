@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
-function Search({ onTextChange, buttonText }) {
+function Search({ handleQuery, buttonText }) {
   const inputRef = useRef();
 
   return (
@@ -13,9 +13,9 @@ function Search({ onTextChange, buttonText }) {
       <button
         type="button"
         onClick={() => {
-          const currentText = inputRef.current.value;
+          const query = inputRef.current.value;
 
-          onTextChange(currentText);
+          handleQuery(query);
         }}
       >
         {buttonText}
@@ -25,7 +25,7 @@ function Search({ onTextChange, buttonText }) {
 }
 
 Search.propTypes = {
-  onTextChange: PropTypes.func.isRequired,
+  handleQuery: PropTypes.func.isRequired,
   buttonText: PropTypes.string.isRequired,
 };
 

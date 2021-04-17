@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-function CatchPhrase() {
+function CatchPhrase({ tagName, className, style }) {
   const [userCount, setUserCount] = useState();
   const [orgCount, setOrgCount] = useState();
 
@@ -17,13 +18,29 @@ function CatchPhrase() {
       });
   }, []);
 
+  const Tag = tagName;
+
   return (
-    <p>
+    <Tag
+      className={className}
+      style={style}
+    >
       {`Start a battle between our ${userCount} champions,`}
       <br />
-      {`and their ${orgCount} clans`}
-    </p>
+      {`and their ${orgCount} clans on GitHub`}
+    </Tag>
   );
 }
+
+CatchPhrase.propTypes = {
+  tagName: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.string),
+};
+
+CatchPhrase.defaultProps = {
+  className: '',
+  style: {},
+};
 
 export default CatchPhrase;
