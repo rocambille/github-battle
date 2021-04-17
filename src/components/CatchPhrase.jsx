@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-function CatchPhrase({ tagName, className, style }) {
-  const [userCount, setUserCount] = useState();
-  const [orgCount, setOrgCount] = useState();
+import useTotalCount from '../hooks/useTotalCount';
 
-  useEffect(() => {
-    fetch('https://api.github.com/search/users?q=type%3Auser')
-      .then((response) => response.json())
-      .then((data) => {
-        setUserCount(data.total_count);
-      });
-    fetch('https://api.github.com/search/users?q=type%3Aorg')
-      .then((response) => response.json())
-      .then((data) => {
-        setOrgCount(data.total_count);
-      });
-  }, []);
+function CatchPhrase({ tagName, className, style }) {
+  const totalCount = useTotalCount();
 
   const Tag = tagName;
 
@@ -25,9 +13,9 @@ function CatchPhrase({ tagName, className, style }) {
       className={className}
       style={style}
     >
-      {`Start a battle between our ${userCount} champions,`}
+      {`Start a battle between our ${totalCount.user} champions,`}
       <br />
-      {`and their ${orgCount} clans on GitHub`}
+      {`and their ${totalCount.org} clans on GitHub`}
     </Tag>
   );
 }
