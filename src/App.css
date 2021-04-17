@@ -1,52 +1,31 @@
-.link {
-  cursor: pointer;
-  display: inline-block;
-  border: none;
-  margin: 0;
-  padding: 0;
-  background: initial;
-  text-decoration: underline;
-  -webkit-appearance: none;
+.unstyle-button {
   -moz-appearance: none;
+  -webkit-appearance: none;
+  background: initial;
+  border: none;
+  color: initial;
   font-family: inherit;
   font-size: inherit;
-  --hue: 220;
-  --saturation: 100%;
-  --lightness: 50%;
-  color: hsl(var(--hue), var(--saturation), var(--lightness));
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .link:hover,
 .link:focus,
 .link:active {
+  color: inherit;
   text-decoration: none;
 }
 
-.link:focus {
-  outline: 1px solid #fff;
-  outline-offset: -4px;
+.color-white {
+  color: white;
 }
 
-.navbar {
-  padding: 1rem;
-  background-color: rgb(36, 41, 46);
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.navbar .link {
-  margin-right: 1rem;
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-}
-
-.navbar .link:hover,
-.navbar .link:focus,
-.navbar .link:active {
-  color: inherit;
-}
-
-.navbar .link.current-page {
-  color: inherit;
-  outline: 1px solid #fff;
-  outline-offset: 4px;
+.text-center {
+  text-align: center;
 }
