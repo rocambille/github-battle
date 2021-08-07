@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { element, func } from 'prop-types';
+import { node, func } from 'prop-types';
 
 function SearchBar({ setQuery, children }) {
   const queryRef = useRef();
@@ -20,7 +20,7 @@ function SearchBar({ setQuery, children }) {
 
 SearchBar.propTypes = {
   setQuery: func.isRequired,
-  children: element.isRequired,
+  children: node.isRequired,
 };
 
 export default SearchBar;
