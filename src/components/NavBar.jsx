@@ -28,8 +28,7 @@ function NavBar({ pages, currentPath, setCurrentPath }) {
           key={page.id}
           onClick={() => setCurrentPath(page.path)}
           className="unstyle-button link color-white"
-          style={currentPath === page.path ? currentPage : link}
-        >
+          style={currentPath === page.path ? currentPage : link}>
           {page.name}
         </button>
       ))}
@@ -38,11 +37,13 @@ function NavBar({ pages, currentPath, setCurrentPath }) {
 }
 
 NavBar.propTypes = {
-  pages: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    path: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-  })).isRequired,
+  pages: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      path: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   currentPath: PropTypes.string.isRequired,
   setCurrentPath: PropTypes.func.isRequired,
 };

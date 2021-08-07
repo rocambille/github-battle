@@ -16,11 +16,7 @@ const fullLine = {
 function Home() {
   return (
     <main style={grid}>
-      <CatchPhrase
-        tagName="h1"
-        style={fullLine}
-        className="text-center"
-      />
+      <CatchPhrase tagName="h1" style={fullLine} className="text-center" />
       <Card />
       <Card />
     </main>

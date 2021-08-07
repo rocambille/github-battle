@@ -1,18 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import useTotalCount from '../hooks/useTotalCount';
+import { useTotalCount } from '../contexts';
 
-function CatchPhrase({ tagName, className, style }) {
+function CatchPhrase({ tagName: Tag, className, style }) {
   const totalCount = useTotalCount();
 
-  const Tag = tagName;
-
   return (
-    <Tag
-      className={className}
-      style={style}
-    >
+    <Tag className={className} style={style}>
       {`Start a battle between our ${totalCount.user} champions,`}
       <br />
       {`and their ${totalCount.org} clans on GitHub`}

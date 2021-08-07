@@ -1,38 +1,33 @@
 import React, { useState } from 'react';
+import useFetch from '../hooks/useFetch';
 
-import Search from './Search';
+import SearchBar from './SearchBar';
 
 function Card() {
-  const [user, setUser] = useState();
+  const [url, setUrl] = useState();
 
-  const fetchUsername = (username) => {
-    fetch(`https://api.github.com/users/${username}`).then(
-      (response) => response.json(),
-    ).then(
-      (data) => setUser(data),
-    );
-  };
+  const [user] = useFetch(url);
 
-  return (
+  return user == null ? (
     <section>
-      {user == null ? (
-        <>
-          <h2>Who is your champion?</h2>
-          <Search handleQuery={fetchUsername} buttonText="📞" />
-        </>
-      ) : (
-        <>
-          <h2>{user.login}</h2>
-          <img src={user.avatar_url} alt={user.login} />
-          <button
-            type="button"
-            onClick={() => setUser(null)}
-          >
-            Change your champion
-          </button>
-        </>
-      )}
+      <h2>Who is your champion?</h2>
+      <SearchBar
+        setQuery={(username) =>
+          setUrl(`https://api.github.com/users/${username}`)
+        }>
+        📞
+      </SearchBar>
     </section>
+  ) : (
+    <figure>
+      <img src={user.avatar_url} alt={user.login} />
+      <figcaption>
+        <h2>{user.login}</h2>
+        <button type="button" onClick={() => setUrl()}>
+          Change your champion
+        </button>
+      </figcaption>
+    </figure>
   );
 }
 
